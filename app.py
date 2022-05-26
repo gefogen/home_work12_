@@ -7,24 +7,27 @@ from config import *
 app = Flask(__name__)
 
 
-app.register_blueprint(main_blueprint)
+app.register_blueprint(main_blueprint)      # Регистрируем блюпринты
 app.register_blueprint(loader_blueprint)
 
 
 @app.route("/uploads/<path:path>", methods=["GET", "POST"])
 def static_dir(path):
+    """ Присылаем из директории """
     return send_from_directory(UPLOAD_FOLDER, path)
 
 
 @app.errorhandler(404)
 def page_not_found(error):
+    """ Вывод ошибки 404 """
     return render_template('error404.html', title="Страница не найдена", error=error), 404
 
 
 @app.errorhandler(500)
 def error_handle(e):
+    """ Вывод ошибки 505 """
     return str(e)
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":      # Запускаем
     app.run(debug=True)
