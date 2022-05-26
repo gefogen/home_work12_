@@ -29,5 +29,5 @@ def error_handle(e):
     return str(e)
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":      # Запускаем
     app.run(debug=True)

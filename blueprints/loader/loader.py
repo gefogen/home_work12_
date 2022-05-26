@@ -27,6 +27,6 @@ def page_post_upload():
         return "Данный тип файла не поддерживается"     # Выводим ошибку
     content = request.values.get('content')     # Получаем текст к посту
     if not content:
-        return "Необходимо загрузить текст к посту", 505        #Выводим ошибку
+        return "Необходимо загрузить текст к посту", 505        #   Выводим ошибку
     write = write_tag_in_json(f"/uploads/{filename}", content)
     return render_template("post_uploaded.html", filename=filename, content=content)

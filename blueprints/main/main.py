@@ -24,7 +24,7 @@ def page_tag():
             return "Нет таких постов", 505      # Выводим ошибку
         logger.info("Выполняется поиск")        # Записываем в лог
     except (FileNotFoundError, json.JSONDecodeError):
-        abort(500, description="File error")        #Выводим ошибку
+        abort(500, description="File error")        #   Выводим ошибку
     return render_template("post_list.html", search=search, content=content)
 
 
